@@ -1,18 +1,6 @@
 {
   "countries": [
     {
-      "id": 1,
-      "country": "India",
-      "city": "Delhi",
-      "population": "1900000"
-    },
-    {
-      "id": 2,
-      "country": "SriLanka",
-      "city": "Colombo",
-      "population": 450984
-    },
-    {
       "id": 3,
       "country": "Spain",
       "city": "Madrid",

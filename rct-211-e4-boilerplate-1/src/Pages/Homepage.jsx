@@ -31,7 +31,7 @@ const Homepage = () => {
   // dispatch(getAllCountries());
 
   useEffect(() => {
-    if (countries.length === 0 || sortBy) {
+    if (countries.length === 0) {
       let getParams = {
         params: {
           _sort: sortBy && "population",
@@ -50,7 +50,7 @@ const Homepage = () => {
         <Text fontWeight="700" paddingRight="1rem">
           Sort by country population
         </Text>
-        <RadioGroup onChange={(e) => setSortBy(e.target.value)}>
+        <RadioGroup onChange={(e) => setSortBy(e)}>
           <Stack direction="row">
             <Radio data-cy="asc" value="asc">
               Ascending
