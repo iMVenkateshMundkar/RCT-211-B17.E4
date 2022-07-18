@@ -38,19 +38,51 @@ export const reducer = (state = initialState, { type, payload }) => {
       };
 
     case actionTypes.UPDATE_COUNTRY_SUCCESS:
-      let newUpdatedCountry = state.countries.map((item) =>
+      let newUpdatedCountries = state.countries.map((item) =>
         item.id === payload.id ? payload : item
       );
 
       return {
         ...state,
-        countries: newUpdatedCountry,
+        countries: newUpdatedCountries,
         isLoading: false,
         isError: false,
+      };
+
+    case actionTypes.UPDATE_COUNTRY_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+
+    case actionTypes.DELETE_COUNTRY_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+
+    case actionTypes.DELETE_COUNTRY_SUCCESS:
+      let newDeletedCountries = state.countries.filter(
+        (item) => item.id !== payload
+      );
+
+      return {
+        ...state,
+        countries: newDeletedCountries,
+        isLoading: false,
+        isError: false,
+      };
+
+    case actionTypes.DELETE_COUNTRY_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
       };
 
     default:
       return state;
   }
-  return state;
 };
